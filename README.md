@@ -46,7 +46,7 @@ def get_args():
     return args
 ```
 
-**2. 메트릭 저장을 위한 출력 **
+**2. 메트릭 저장을 위한 출력**
 
 Katib로 HPO 수행을 위해선 Metrics Collector를 정의해야합니다. 이때 StdOut을 사용할 것입니다. StdOut 방식의 사용법은 간단합니다. 파이썬의 `print` 를 통해 `{key}={value}` 를 맞춰 출력하도록 하면됩니다.
 
