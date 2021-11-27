@@ -6,15 +6,15 @@
 
 **순서도**
 
-1. <u>개발자 `train.py` 를 Github Repository에 Push</u>
-2. <u>Github Action을 통해 수행되는 Docker build & push</u>
-3. <u>ArgoCD가 바라보고 있는 Deploy Repository Update with tag</u>
+1. <ins>개발자 `train.py` 를 Github Repository에 Push</ins>
+2. <ins>Github Action을 통해 수행되는 Docker build & push</ins>
+3. <ins>ArgoCD가 바라보고 있는 Deploy Repository Update with tag</ins>
 4. ArgoCD가 Kubernetes에 `train-experiment.yaml` 실행 
 5. Slack Alert
 
 
 
-현재 레포지토리에서 수행하는 Task는 1,2 3입니다.
+현재 레포지토리에서 수행하는 Task는 1, 2, 3입니다.
 
 <br/>
 
@@ -25,7 +25,9 @@ Katib로 HPO를 수행하기 위해 2가지 신경써야 할 부분이 있습니
 1. 하이퍼 파라미터 입력
 2. 메트릭 저장을 위한 출력
 
-1. **하이퍼 파라미터 입력**
+
+
+**1. 하이퍼 파라미터 입력**
 
 모델 학습을 위한 코드에서 하이퍼 파라미터 튜닝을 원하는 Argument을 `argparse` 를 통해 지정해야합니다.
 
@@ -44,7 +46,7 @@ def get_args():
     return args
 ```
 
-2. **메트릭 저장을 위한 출력 **
+**2. 메트릭 저장을 위한 출력 **
 
 Katib로 HPO 수행을 위해선 Metrics Collector를 정의해야합니다. 이때 StdOut을 사용할 것입니다. StdOut 방식의 사용법은 간단합니다. 파이썬의 `print` 를 통해 `{key}={value}` 를 맞춰 출력하도록 하면됩니다.
 
