@@ -16,7 +16,7 @@
 
 현재 레포지토리에서 수행하는 Task는 1,2 3입니다.
 
-
+<br/>
 
 ## 1. train.py
 
@@ -56,7 +56,7 @@ print(f"model acc={acc:.4f} loss={loss:.4f}")
 
 위의 예시는 acc라는 key값에 acc가 소수점 네번째자리까지의 값이 저장될 것입니다. (loss도 마찬가지)
 
-
+<br/>
 
 ## 2. Github Actions Docker
 
@@ -67,6 +67,8 @@ Tag가 업로드 되면 Github Actions가 실행됩니다. Github Actions가 자
 1. 현재 레포지토리 복제
 2. 이미 정의된 Dockerfile 기반으로 `train.py` 를 도커 이미지로 빌드
 3. `ghcr`로 도커 이미지 업로드
+
+<br/>
 
 ## 3. Github Actions Update Tag
 
