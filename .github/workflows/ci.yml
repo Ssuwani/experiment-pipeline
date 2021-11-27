@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - "v*"
-
 jobs:
   image-push:
     runs-on: ubuntu-latest
