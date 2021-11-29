@@ -20,11 +20,15 @@ jobs:
       - name: Find Suffix string
         run: |
           echo "SUFFIX=$VERSION//./" >> $GITHUB_ENV
-          echo "version: $VERSION -> suffix: ${{ env.SUFFIX }}"
-
         env:
           VERSION: ${{ env.RELEASE_VERSION }}
-          
+      - name: check suffix env
+        run: |
+          echo "version: $VERSION -> suffix: $SUFFIX"
+        env:
+          VERSION: ${{ env.RELEASE_VERSION }}
+          SUFFIX: ${{ env.SUFFIX}}
+
       - name: Set up docker Buildx
         uses: docker/setup-buildx-action@v1
 
