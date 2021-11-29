@@ -44,7 +44,7 @@ spec:
           spec:
             containers:
               - name: training-container
-                image: ssuwani/katib-mnist:v0.11
+                image: ghcr.io/ssuwani/katib-mnist:<tag>
                 command:
                   - "python"
                   - "/train.py"
