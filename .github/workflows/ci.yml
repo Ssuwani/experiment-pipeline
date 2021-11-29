@@ -47,7 +47,7 @@ jobs:
         run: |
           cd deployments/overlays/dev
           kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/katib-mnist:${{ env.RELEASE_VERSION }}
-          kustomize edit set nameSuffix -${{ env.RELEASE_VERSION }}
+          kustomize edit set namesuffix -- -${{ env.RELEASE_VERSION }}
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
           git commit -am 'Publish new version ${{ env.RELEASE_VERSION }} to dev'
