@@ -45,7 +45,7 @@ jobs:
 
       - name: Set new image tag
         run: |
-          cd mlops_mnist_config/overlays/dev
+          cd deployments/overlays/dev
           kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/katib-mnist:${{ env.RELEASE_VERSION }}
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
