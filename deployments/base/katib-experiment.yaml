@@ -11,8 +11,8 @@ spec:
       - test-loss
   algorithm:
     algorithmName: random
-  parallelTrialCount: 3
-  maxTrialCount: 12
+  parallelTrialCount: 2
+  maxTrialCount: 6
   maxFailedTrialCount: 3
   parameters:
     - name: hidden_units
@@ -44,7 +44,7 @@ spec:
           spec:
             containers:
               - name: training-container
-                image: ghcr.io/ssuwani/katib-mnist:<tag>
+                image: ghcr.io/ssuwani/katib-mnist:0.0.1
                 command:
                   - "python"
                   - "/train.py"
