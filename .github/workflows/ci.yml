@@ -50,4 +50,4 @@ jobs:
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
           git commit -am 'Publish new version ${{ env.RELEASE_VERSION }} to dev'
-          git push || echo 'no changes'
+          git push origin master || echo 'no changes'
