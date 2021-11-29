@@ -19,7 +19,7 @@ jobs:
         
       - name: Find Suffix string
         run: |
-          echo "SUFFIX=${VERSION//./}" >> $GITHUB_ENV
+          echo "SUFFIX=$VERSION//./" >> $GITHUB_ENV
           echo "version: $VERSION -> suffix: ${{ env.SUFFIX }}"
 
         env:
