@@ -51,4 +51,9 @@ jobs:
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
           git commit -am 'Publish new version ${{ env.RELEASE_VERSION }} to dev'
-          git push origin master || echo 'no changes'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: ${{ github.ref }}
