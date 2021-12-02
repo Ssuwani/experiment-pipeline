@@ -3,8 +3,6 @@ kind: Experiment
 metadata:
   name: katib-experiment
 spec:
-  nodeSelector:
-    cloud.google.com/gke-nodepool: gpu-pool
   objective:
     type: maximize
     goal: 0.99
@@ -42,6 +40,12 @@ spec:
       apiVersion: batch/v1
       kind: Job
       spec:
+        nodeSelector:
+          cloud.google.com/gke-nodepool: gpu-pool
+          tolerations:
+          - key: "nvidia.com/gpu"
+            operator: "Exists"
+            effect: "NoSchedule"
         template:
           spec:
             containers:
