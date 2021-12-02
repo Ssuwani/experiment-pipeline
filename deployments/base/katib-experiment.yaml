@@ -50,4 +50,6 @@ spec:
                   - "/train.py"
                   - "--hidden_units=${trialParameters.hidden_units}"
                   - "--optimizer=${trialParameters.optimizer}"
+            nodeSelector:
+              cloud.google.com/gke-nodepool: gpu-pool
             restartPolicy: Never
