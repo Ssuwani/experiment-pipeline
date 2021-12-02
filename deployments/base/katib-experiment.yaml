@@ -3,6 +3,8 @@ kind: Experiment
 metadata:
   name: katib-experiment
 spec:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: gpu-pool
   objective:
     type: maximize
     goal: 0.99
@@ -50,6 +52,5 @@ spec:
                   - "/train.py"
                   - "--hidden_units=${trialParameters.hidden_units}"
                   - "--optimizer=${trialParameters.optimizer}"
-            nodeSelector:
-              cloud.google.com/gke-nodepool: gpu-pool
+            
             restartPolicy: Never
