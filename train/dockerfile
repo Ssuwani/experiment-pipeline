@@ -1,3 +1,9 @@
 FROM gcr.io/deeplearning-platform-release/tf2-cpu.2-6
+WORKDIR /src
 
-ADD train.py /
+# train file location: /src/train.py
+ADD train.py /src
+
+
+# If --saved_model args is True
+# model location:  f"/src/saved_model/mnist-{hidden_units}-{optimizer}-{acc*100}"
