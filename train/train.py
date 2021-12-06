@@ -8,11 +8,13 @@ def get_args():
 
     parser.add_argument("--hidden_units", type=int, required=True)
     parser.add_argument("--optimizer", type=str, required=True)
+    parser.add_argument("--save_model", type=bool, default=False)
+
     args = parser.parse_args()
     return args
 
 
-def train(hidden_units, optimizer):
+def train(hidden_units, optimizer, save_model):
     (train_x, train_y), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
     train_x = train_x / 255.0
     test_x = test_x / 255.0
@@ -33,7 +35,12 @@ def train(hidden_units, optimizer):
     loss, acc = model.evaluate(test_x, test_y)
     print(f"model test-loss={loss:.4f} test-acc={acc:.4f}")
 
+    if save_model:
+        tf.saved_model.save(
+            model, f"./saved_model/mnist-{hidden_units}-{optimizer}-{acc*100}"
+        )
+
 
 if __name__ == "__main__":
     args = get_args()
-    train(args.hidden_units, args.optimizer)
+    train(args.hidden_units, args.optimizer, args.save_model)
