@@ -51,7 +51,7 @@ jobs:
           context: train
           file: ./train/dockerfile
           push: true
-          tags: ghcr.io/${{ env.OWNER_LC}}/katib-mnist:${{ env.RELEASE_VERSION}}
+          tags: ghcr.io/${{ env.OWNER_LC}}/train-mnist:${{ env.RELEASE_VERSION}}
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
@@ -59,7 +59,7 @@ jobs:
       - name: Set new image tag
         run: |
           cd deployments/overlays/dev
-          kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/katib-mnist:${{ env.RELEASE_VERSION }}
+          kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/train-mnist:${{ env.RELEASE_VERSION }}
           kustomize edit set namesuffix -- -${{env.SUFFIX}}
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"

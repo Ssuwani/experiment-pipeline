@@ -50,10 +50,10 @@ spec:
                 effect: "NoSchedule"
             containers:
               - name: training-container
-                image: ghcr.io/ssuwani/katib-mnist:0.0.1
+                image: ghcr.io/ssuwani/train-mnist:0.0.1
                 command:
                   - "python"
-                  - "/train.py"
+                  - "/src/train.py"
                   - "--hidden_units=${trialParameters.hidden_units}"
                   - "--optimizer=${trialParameters.optimizer}"
 

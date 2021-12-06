@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 nameSuffix: "-0025"
 images:
-- name: ghcr.io/ssuwani/katib-mnist
+- name: ghcr.io/ssuwani/train-mnist
   newTag: 0.0.25
 resources:
 - ../../base
