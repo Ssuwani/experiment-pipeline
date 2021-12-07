@@ -3,6 +3,7 @@ WORKDIR /src
 
 # train file location: /src/train.py
 ADD train.py /src
+ADD slack-alert.py /src
 
 
 # If --saved_model args is True
