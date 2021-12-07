@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: slack-alert
+spec:
+  template:
+    spec:
+      containers:
+        - name: slack-alert
+          image: ghcr.io/ssuwani/train-mnist:0.0.1
+          command: ["python", "/src/slack-alert.py"]
+      restartPolicy: Never
+  backoffLimit: 4

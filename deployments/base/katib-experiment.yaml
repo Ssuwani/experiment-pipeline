@@ -56,9 +56,5 @@ spec:
                   - "/src/train.py"
                   - "--hidden_units=${trialParameters.hidden_units}"
                   - "--optimizer=${trialParameters.optimizer}"
-              - name: slack-alert
-                image: ghcr.io/ssuwani/train-mnist:0.0.1
-                command:
-                  - "python"
-                  - "/src/slack-alert.py"
+
             restartPolicy: Never
