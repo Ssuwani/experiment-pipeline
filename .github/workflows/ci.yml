@@ -16,7 +16,7 @@ jobs:
       - name: Set env
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/v}" >> $GITHUB_ENV
-        
+
       - name: Find Suffix string
         run: |
           echo "SUFFIX=${VERSION//./}" >> $GITHUB_ENV
@@ -45,13 +45,21 @@ jobs:
         env:
           OWNER: "${{ github.repository_owner }}"
 
-      - name: Build and push
+      - name: Experiment Build and push
         uses: docker/build-push-action@v2
         with:
           context: train
           file: ./train/dockerfile
           push: true
           tags: ghcr.io/${{ env.OWNER_LC}}/train-mnist:${{ env.RELEASE_VERSION}}
+
+      - name: Alert Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: utils
+          file: ./utils/dockerfile
+          push: true
+          tags: ghcr.io/${{ env.OWNER_LC}}/slack-alert:${{ env.RELEASE_VERSION}}
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
