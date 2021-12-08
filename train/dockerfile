@@ -1,10 +1,8 @@
 FROM gcr.io/deeplearning-platform-release/tf2-gpu.2-6
 WORKDIR /src
 
-RUN pip install kubeflow-katib
 # train file location: /src/train.py
 ADD train.py /src
-ADD slack-alert.py /src
 
 
 # If --saved_model args is True
