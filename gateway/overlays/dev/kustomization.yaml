@@ -4,9 +4,5 @@ nameSuffix: "-011"
 images:
 - name: ghcr.io/ssuwani/mlops-gateways
   newTag: 0.1.1
-- name: ghcr.io/ssuwani/ssuwani/mlops-gateways
-  newTag: 0.1.0
-- name: ssuwani/mlops-gateways
-  newTag: 0.0.1
 resources:
 - ../../base
