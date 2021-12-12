@@ -3,7 +3,7 @@ kind: Kustomization
 nameSuffix: "-0017"
 images:
 - name: ghcr.io/ssuwani/slack-alert
-  newTag: 0.2.3
+  newTag: 0.2.4
 - name: ghcr.io/ssuwani/train-mnist
   newTag: 0.0.17
   
