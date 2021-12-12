@@ -17,7 +17,7 @@ def call_dispatcher(data):
     units = data["hidden_units"]
     optimizer = data["optimizer"]
     version = data["version"]
-    print(units, optimizer)
+    print(units, optimizer, version)
     data_json = {
         "ref": "master",
         "inputs": {
