@@ -5,9 +5,9 @@ import json
 
 TOKEN = os.getenv("ACCESS_TOKEN")
 OWNER = "ssuwani"
-REPO = "mnist-model"
+REPO = "deploy-pipeline"
 
-WORKFLOW_ID = "deploy.yml"
+WORKFLOW_ID = "ci.yml"
 headers = {
     "Authorization": f"token {TOKEN}",
 }
