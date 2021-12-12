@@ -13,16 +13,24 @@ headers = {
 }
 
 
-def call_dispatcher(hpo):
-    units = hpo["hidden_units"]
-    optimizer = hpo["optimizer"]
+def call_dispatcher(data):
+    units = data["hidden_units"]
+    optimizer = data["optimizer"]
+    version = data["version"]
     print(units, optimizer)
-    data = {"ref": "main", "inputs": {"units": str(units), "optimizer": optimizer}}
+    data_json = {
+        "ref": "master",
+        "inputs": {
+            "hidden_units": str(units),
+            "optimizer": optimizer,
+            "version": version,
+        },
+    }
     # data = {"ref": "main", "inputs":{"model_path": model_path, "model_tag": model_tag }}
     res = requests.post(
         f"https://api.github.com/repos/{OWNER}/{REPO}/actions/workflows/{WORKFLOW_ID}/dispatches",
         headers=headers,
-        data=json.dumps(data),
+        data=json.dumps(data_json),
     )
     print(res.text)
     print(res.status_code)
