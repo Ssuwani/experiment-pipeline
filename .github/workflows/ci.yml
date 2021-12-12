@@ -50,7 +50,7 @@ jobs:
           context: src/gateway
           file: src/gateway/dockerfile
           push: true
-          tags: ghcr.io/${{ env.OWNER_LC}}/ssuwani/mlops-gateways:${{ env.RELEASE_VERSION}}
+          tags: ghcr.io/${{ env.OWNER_LC}}/mlops-gateways:${{ env.RELEASE_VERSION}}
 
       - name: slack alert Build and push
         uses: docker/build-push-action@v2
@@ -58,7 +58,7 @@ jobs:
           context: src/slack-alert
           file: src/slack-alert/dockerfile
           push: true
-          tags: ghcr.io/${{ env.OWNER_LC}}/ssuwani/slack-alert:${{ env.RELEASE_VERSION}}
+          tags: ghcr.io/${{ env.OWNER_LC}}/slack-alert:${{ env.RELEASE_VERSION}}
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
@@ -68,10 +68,11 @@ jobs:
           cd experiment/overlays/dev
           kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/slack-alert:${{ env.RELEASE_VERSION }}
           cd ../../../gateway/overlays/dev
-          kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/ssuwani/mlops-gateways:${{ env.RELEASE_VERSION }}
+          kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/mlops-gateways:${{ env.RELEASE_VERSION }}
           kustomize edit set namesuffix -- -${{env.SUFFIX}}
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
+          cd ../../../
           git add .
           git commit -m 'Publish new version ${{ env.RELEASE_VERSION }} to dev'
           git push -u origin master
