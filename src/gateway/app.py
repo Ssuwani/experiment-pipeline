@@ -10,6 +10,7 @@ def home():
 @app.route("/run_deploy_pipeline", methods=["POST"])
 def run_deploy_pipepline():
     data = request.form.get("text")
+    print(data)
     data = {info.split("-")[0]: info.split("-")[1] for info in data.split()}
     print("data: ", data)
     call_dispatcher(data)
