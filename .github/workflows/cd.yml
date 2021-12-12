@@ -1,0 +1,18 @@
+name: Experiment Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+    # github.event.inputs.RELEASE_VERSION
+      RELEASE_VERSION:
+        description: 'version define from tag' 
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: echo VERSION
+        run: echo ${{ github.event.inputs.units }}
