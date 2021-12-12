@@ -4,6 +4,7 @@ import json
 
 
 TOKEN = os.getenv("ACCESS_TOKEN")
+print(TOKEN)
 OWNER = "ssuwani"
 REPO = "deploy-pipeline"
 
