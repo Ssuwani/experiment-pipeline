@@ -3,8 +3,8 @@ import requests
 import json
 
 
-TOKEN = "<GITHUB ACCESS TOKEN>"
-OWNER = "KIMnJANG"
+TOKEN = os.getenv("ACCESS_TOKEN")
+OWNER = "ssuwani"
 REPO = "mnist-model"
 
 WORKFLOW_ID = "deploy.yml"

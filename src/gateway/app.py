@@ -10,7 +10,7 @@ def run_deploy_pipepline():
     hpo = {info.split("-")[0]: info.split("-")[1] for info in data.split()}
     print("hpo: ", hpo)
     call_dispatcher(hpo)
-    return f"배포 파이프라인이 실행되었습니다.\n https://github.com/KIMnJANG/mnist-model/actions\n 실행된 하이퍼 파라미터: {hpo}"
+    return f"배포 파이프라인이 실행되었습니다.\n https://github.com/ssuwani/deploy-pipeline/actions\n 실행된 하이퍼 파라미터: {hpo}"
 
 
 if __name__ == "__main__":
