@@ -60,7 +60,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.OWNER_LC}}/slack-alert:${{ env.RELEASE_VERSION}}
           build-args: SLACK_WEBHOOK_ARG=${{secrets.SLACK_WEBHOOK}}
-          
+
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
 
@@ -70,7 +70,6 @@ jobs:
           kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/slack-alert:${{ env.RELEASE_VERSION }}
           cd ../../../gateway/overlays/dev
           kustomize edit set image ghcr.io/${{ env.OWNER_LC }}/mlops-gateways:${{ env.RELEASE_VERSION }}
-          kustomize edit set namesuffix -- -${{env.SUFFIX}}
           git config --global user.name ${{ github.repository_owner }}
           git config --global user.email "jsuwan961205@gmail.com"
           cd ../../../
