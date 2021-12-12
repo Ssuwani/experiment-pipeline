@@ -3,6 +3,9 @@ from dispatch import call_dispatcher
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Welcome to api gateway"
 
 @app.route("/run_deploy_pipeline", methods=["POST"])
 def run_deploy_pipepline():
