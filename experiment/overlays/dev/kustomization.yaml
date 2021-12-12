@@ -4,6 +4,9 @@ nameSuffix: '-'
 images:
 - name: ghcr.io/ssuwani/train-mnist
   newTag: 0.0.16
+- name: ghcr.io/ssuwani/slack-alert
+  newTag: 0.0.16
+  
 resources:
 - ../../base
 vars:
