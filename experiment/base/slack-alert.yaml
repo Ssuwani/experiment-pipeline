@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: slack-alert
+spec:
+  template:
+    spec:
+      containers:
+        - name: slack-alert
+          image: ghcr.io/kimnjang/slack-alert:0.0.41
+          command:
+            - "python"
+            - "/src/slack-alert.py"
+            - "--exp_name"
+            - "$(EXPERIMENT_NAME)"
+            - "--namespace"
+            - "ep"
+      restartPolicy: Never
+  backoffLimit: 4
