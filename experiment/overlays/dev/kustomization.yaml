@@ -1,9 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-nameSuffix: "-0041"
+nameSuffix: '-'
 images:
 - name: ghcr.io/kimnjang/train-mnist
   newTag: 0.0.41
+- name: ghcr.io/ssuwani/train-mnist
+  newTag: 0.0.15
 resources:
 - ../../base
 vars:
