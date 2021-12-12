@@ -3,7 +3,7 @@ kind: Kustomization
 nameSuffix: '-'
 images:
 - name: ghcr.io/ssuwani/train-mnist
-  newTag: 0.0.41
+  newTag: 0.0.16
 resources:
 - ../../base
 vars:
